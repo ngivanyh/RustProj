@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "varialbes"
+name = "isprime"
 version = "0.1.0"

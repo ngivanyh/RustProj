@@ -6,5 +6,7 @@ fn main() {
     io::stdin()
         .read_line(&mut usr_num)
         .expect("Failed to read line");
-    println!("You typed {usr_num}")
+    let mut usr_num: i32 = usr_num.trim().parse().expect("Please type a number");
+    let mut posFactor: i32 = 0;
+    let mut howFactors: u32 = 0;
 }

@@ -1,10 +1,11 @@
 use std::io;
 
 fn main() {
-    println!("Insert a number: ");
+println!("Insert a number: ");
     let mut usr_num = String::new();
     let mut pos_factor: i32 = 1;
     let mut how_factors: u32 = 0;
+
     io::stdin()
         .read_line(&mut usr_num)
         .expect("Failed to read line");

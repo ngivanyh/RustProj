@@ -1,9 +1,9 @@
 use std::io;
 
 fn main() { 
-    let mut possible_factor: i32 = 1;
-    let mut how_factors: u32 = 0;
     loop {
+        let mut possible_factor: i32 = 1;
+        let mut factor_amount: u32 = 0;
         let mut usr_num = String::new();
         println!("Insert a number: ");
         io::stdin()
@@ -14,19 +14,22 @@ fn main() {
             Err(_) => continue,
         };
         while usr_num - possible_factor != -1 {
-            if usr_num % possible_factor != 0 {
-                possible_factor += 1;
+                if usr_num % possible_factor != 0 {
+                    possible_factor += 1;
+                }
+                else if usr_num % possible_factor == 0 {
+                    factor_amount += 1;
+                    possible_factor += 1;
+                }
+                if factor_amount >= 3 {
+                    break;
+                }
             }
-            if usr_num % possible_factor == 0 {
-                how_factors += 1;
-                possible_factor += 1;
-            }
-        }
-        if how_factors == 2 {
+        if factor_amount == 2 {
             println!("Is Prime");
         }
         else {
             println!("Not Prime");
         }
-    } 
+    }
 }

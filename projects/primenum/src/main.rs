@@ -2,14 +2,14 @@ use std::io;
 
 fn main() { 
     loop {
-        let mut possible_factor: i32 = 1;
-        let mut factor_amount: u32 = 0;
+        let mut possible_factor: i64 = 1;
+        let mut factor_amount: u64 = 0;
         let mut usr_num = String::new();
         println!("Insert a number: ");
         io::stdin()
             .read_line(&mut usr_num)
             .expect("Failed to read line");
-        let usr_num: i32 = match usr_num.trim().parse() {
+        let usr_num: i64 = match usr_num.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
         };

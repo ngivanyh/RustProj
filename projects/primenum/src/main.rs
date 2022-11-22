@@ -2,6 +2,7 @@ use std::io;
 
 fn main() { 
     loop {
+        let mut factors = vec![];
         let mut possible_factor: i64 = 1;
         let mut factor_amount: u64 = 0;
         let mut usr_num = String::new();
@@ -20,13 +21,14 @@ fn main() {
                 else if usr_num % possible_factor == 0 {
                     factor_amount += 1;
                     possible_factor += 1;
+                    factors.push(possible_factor)
                 }
                 if factor_amount >= 3 {
                     break;
                 }
             }
         if factor_amount == 2 {
-            println!("Is Prime");
+            println!("Is Prime, can be divisable by);
         }
         else {
             println!("Not Prime");

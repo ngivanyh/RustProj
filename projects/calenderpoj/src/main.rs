@@ -1,12 +1,43 @@
+use chrono::prelude::*;
 use std::io;
 
-fn cal(cmd: String) {
+fn cal(cmd: &str) {
+    // declare variable shortcuts
+    let time = Local::now();
+    let year = time.year();
+    let month = time.month();
+    let day = time.day();
+    let weekday = time.weekday();
+    // debug
     println!("{}", cmd);
+    // simple commands
+    if cmd == "now\n" {
+        println!(
+            "{}-{}-{},{} {}:{}",
+            year,
+            month,
+            day,
+            weekday,
+            time.hour(),
+            time.minute()
+        ); // get current time year-month-day,weekday hour:minute
+    } else if cmd == "year\n" {
+        println!("{}", year); // get year
+    } else if cmd == "month\n" {
+        println!("{}", month); // get month
+    } else if cmd == "day\n" {
+        println!("{}", day); // get day of month
+    } else if cmd == "weekday\n" {
+        println!("{}", weekday); // get weekday
+    } else {
+        println!("Not a func")
+    }
 }
 fn main() {
     let mut usr_in = String::new();
     io::stdin()
         .read_line(&mut usr_in)
         .expect("Failed to read line");
-    cal(usr_in);
+    let argument = &usr_in[0..usr_in.len()];
+    cal(argument);
 }

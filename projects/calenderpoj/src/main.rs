@@ -10,8 +10,10 @@ fn cal(cmd: &str) {
     let weekday = time.weekday();
     // debug
     println!("{}", cmd);
-    // simple commands
-    if cmd == "now\n" {
+    // commands
+    if cmd == "cal\n" {
+        println!("cal placeholder");
+    } else if cmd == "now\n" {
         println!(
             "{}-{}-{},{} {}:{}",
             year,

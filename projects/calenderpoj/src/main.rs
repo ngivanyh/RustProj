@@ -12,7 +12,9 @@ fn cal(cmd: &str) {
     println!("{}", cmd);
     // commands
     if cmd == "cal\n" {
-        println!("cal placeholder");
+        // get date and weekday of current month
+        // iterate through ex: 12/1 is monday -> 12/2 is tuesday
+        // stop until last day of month
     } else if cmd == "now\n" {
         println!(
             "{}-{}-{},{} {}:{}",

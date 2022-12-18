@@ -1,7 +1,7 @@
 use chrono::prelude::*;
 use std::io;
 
-fn cal(cmd: &str) {
+fn cal(cmd: String) {
     // declare variable shortcuts
     let time = Local::now();
     let year = time.year();
@@ -12,6 +12,10 @@ fn cal(cmd: &str) {
     println!("{}", cmd);
     // commands
     if cmd == "cal\n" {
+        let mut condition = true;
+        while condition == true {
+            
+        }
         // get date and weekday of current month
         // iterate through ex: 12/1 is monday -> 12/2 is tuesday
         // stop until last day of month
@@ -42,6 +46,5 @@ fn main() {
     io::stdin()
         .read_line(&mut usr_in)
         .expect("Failed to read line");
-    let argument = &usr_in[0..usr_in.len()];
-    cal(argument);
+    cal(usr_in);
 }

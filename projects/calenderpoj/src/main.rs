@@ -1,7 +1,34 @@
 use chrono::prelude::*;
 use std::io;
 
-fn cal(cmd: String) {
+fn cal(y: i32, mo: u32) {
+    // debug
+    println!("gotten to func y{},mo{}", y, mo);
+    // let dt = Local.with_ymd_and_hms(y, mo, 0, 0, 0, 0);
+    // identify how many times cal has to loop
+    if mo == 1 || mo == 3 || mo == 5 || mo == 7 || mo == 8 || mo == 10 || mo == 12 {
+        println!("These months have 31 days");
+    } else if mo == 4 || mo == 6 || mo == 9 || mo == 11 {
+        println!("These months have 30 days");
+    } else if mo == 2 {
+        if y % 4 == 0 {
+            if y % 100 == 0 {
+                if y % 400 == 0 {
+                    println!("This month has 29 days");
+                } else {
+                    println!("This month has 28 days");
+                }
+            } else {
+                println!("This month has 29 days");
+            }
+        } else {
+            println!("This month has 28 days")
+        }
+    } else {
+        println!("Incorrect month");
+    }
+}
+fn date(cmd: String) {
     // declare variable shortcuts
     let time = Local::now();
     let year = time.year();
@@ -12,13 +39,34 @@ fn cal(cmd: String) {
     println!("{}", cmd);
     // commands
     if cmd == "cal\n" {
-        let mut condition = true;
-        while condition == true {
-            
-        }
-        // get date and weekday of current month
-        // iterate through ex: 12/1 is monday -> 12/2 is tuesday
-        // stop until last day of month
+        // declare needed var
+        let mut cal_year = String::new();
+        let mut cal_month = String::new();
+        // specify year
+        println!("Specify year:");
+        io::stdin()
+            .read_line(&mut cal_year)
+            .expect("Failed to read line");
+        // debug
+        println!("{}", cal_year);
+        // specify month
+        println!("Specify month:");
+        io::stdin()
+            .read_line(&mut cal_month)
+            .expect("Failed to read line");
+        // debug
+        println!("{}", cal_month);
+        // type conversion
+        let cal_year: i32 = cal_year
+            .trim()
+            .parse()
+            .expect("Couldn't convert string to int");
+        let cal_month: u32 = cal_month
+            .trim()
+            .parse()
+            .expect("Couldn't convert string to int");
+        // gives ownership to cal
+        cal(cal_year, cal_month);
     } else if cmd == "now\n" {
         println!(
             "{}-{}-{},{} {}:{}",
@@ -46,5 +94,5 @@ fn main() {
     io::stdin()
         .read_line(&mut usr_in)
         .expect("Failed to read line");
-    cal(usr_in);
+    date(usr_in);
 }

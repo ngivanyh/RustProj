@@ -1,28 +1,36 @@
 use chrono::prelude::*;
 use std::io;
 
+fn month() {
+    println!("got to func")
+}
 fn cal(y: i32, mo: u32) {
     // debug
     println!("gotten to func y{},mo{}", y, mo);
-    // let dt = Local.with_ymd_and_hms(y, mo, 0, 0, 0, 0);
     // identify how many times cal has to loop
     if mo == 1 || mo == 3 || mo == 5 || mo == 7 || mo == 8 || mo == 10 || mo == 12 {
         println!("These months have 31 days");
+        month();
     } else if mo == 4 || mo == 6 || mo == 9 || mo == 11 {
         println!("These months have 30 days");
+        month();
     } else if mo == 2 {
         if y % 4 == 0 {
             if y % 100 == 0 {
                 if y % 400 == 0 {
                     println!("This month has 29 days");
+                    month();
                 } else {
                     println!("This month has 28 days");
+                    month();
                 }
             } else {
                 println!("This month has 29 days");
+                month();
             }
         } else {
             println!("This month has 28 days")
+            month();
         }
     } else {
         println!("Incorrect month");

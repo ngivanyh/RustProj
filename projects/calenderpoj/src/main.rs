@@ -1,8 +1,56 @@
 use chrono::prelude::*;
 use std::io;
 
-fn month() {
-    println!("got to func")
+fn cal_maker(mo_days: u32, mo: u32, y: i32) {
+    println!("hello this month has{}", mo_days);
+    // declare var
+    let mut sun: Vec<u32> = Vec::new();
+    let mut mon: Vec<u32> = Vec::new();
+    let mut tue: Vec<u32> = Vec::new();
+    let mut wed: Vec<u32> = Vec::new();
+    let mut thur: Vec<u32> = Vec::new();
+    let mut fri: Vec<u32> = Vec::new();
+    let mut sat: Vec<u32> = Vec::new();
+    let mut cnt: u32 = 1;
+    println!("hello cars");
+    while mo_days >= cnt {
+        println!("hello loop");
+        let dt = Local.with_ymd_and_hms(y, mo, cnt, 0, 0, 0).unwrap();
+        let format_dt = format!("{}", dt.format("%a"));
+        println!("{}", format_dt.len());
+        let sliced_format_dt = &format_dt[0..];
+        if sliced_format_dt == "Sun" {
+            sun.push(cnt);
+            println!("hello sun");
+            // cnt += 1;
+        } else if sliced_format_dt == "Mon" {
+            mon.push(cnt);
+            println!("hello mon");
+            // cnt += 1;
+        } else if sliced_format_dt == "Tue" {
+            tue.push(cnt);
+            println!("hello tue");
+            // cnt += 1;
+        } else if sliced_format_dt == "Wed" {
+            wed.push(cnt);
+            println!("hello wed");
+            // cnt += 1;
+        } else if sliced_format_dt == "Thu" {
+            thur.push(cnt);
+            println!("hello thur");
+            // cnt += 1;
+        } else if sliced_format_dt == "Fri" {
+            fri.push(cnt);
+            println!("hello fri");
+            // cnt += 1;
+        } else if sliced_format_dt == "Sat" {
+            sat.push(cnt);
+            println!("hello sat");
+            // cnt += 1;
+        }
+        cnt += 1;
+    }
+    println!("sun{sun:?}mon{mon:?}tue{tue:?}wed{wed:?}thur{thur:?}fri{fri:?}sat{sat:?}");
 }
 fn cal(y: i32, mo: u32) {
     // debug
@@ -10,27 +58,33 @@ fn cal(y: i32, mo: u32) {
     // identify how many times cal has to loop
     if mo == 1 || mo == 3 || mo == 5 || mo == 7 || mo == 8 || mo == 10 || mo == 12 {
         println!("These months have 31 days");
-        month();
+        let days_in_mo: u32 = 31;
+        cal_maker(days_in_mo, mo, y);
     } else if mo == 4 || mo == 6 || mo == 9 || mo == 11 {
         println!("These months have 30 days");
-        month();
+        let days_in_mo: u32 = 30;
+        cal_maker(days_in_mo, mo, y);
     } else if mo == 2 {
         if y % 4 == 0 {
             if y % 100 == 0 {
                 if y % 400 == 0 {
                     println!("This month has 29 days");
-                    month();
+                    let days_in_mo: u32 = 29;
+                    cal_maker(days_in_mo, mo, y);
                 } else {
                     println!("This month has 28 days");
-                    month();
+                    let days_in_mo: u32 = 28;
+                    cal_maker(days_in_mo, mo, y);
                 }
             } else {
                 println!("This month has 29 days");
-                month();
+                let days_in_mo: u32 = 29;
+                cal_maker(days_in_mo, mo, y);
             }
         } else {
-            println!("This month has 28 days")
-            month();
+            println!("This month has 28 days");
+            let days_in_mo: u32 = 28;
+            cal_maker(days_in_mo, mo, y);
         }
     } else {
         println!("Incorrect month");

@@ -51,6 +51,19 @@ fn cal_maker(mo_days: u32, mo: u32, y: i32) {
         cnt += 1;
     }
     println!("sun{sun:?}mon{mon:?}tue{tue:?}wed{wed:?}thur{thur:?}fri{fri:?}sat{sat:?}");
+    println!("{}", format!("{:^27}", format!("{} {}", mo, y)));
+    println!("Sun Mon Tue Wed Thu Fri Sat");
+    //          12 2022
+    // Sun Mon Tue Wed Thu Fri Sat
+    //                   1   2   3
+    //   4   5   6   7   8   9   10
+    //   11  12  13  14  15  16  17
+    //   18  19  20  21  22  23  24
+    //   25  26  27  28  29  30  31
+    // how to acheive goal:
+    // make a array that has a list of the dates in order
+    // ex: 12/1 is on friday = [" ", " ", ... "1"]
+    // you add spaces in front of first day if first day is not on sunday
 }
 fn cal(y: i32, mo: u32) {
     // debug

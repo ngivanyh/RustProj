@@ -57,17 +57,65 @@ fn cal_maker(mo_days: u32, mo: u32, y: i32) {
     while mo_days >= cnt {
         let mut week: Vec<u32> = Vec::new();
         while week.len() <= 6 {
-            // let first_dt = Local.with_ymd_and_hms(y, mo, 1, 0, 0, 0).unwrap();
-            // let first_fmt_dt = format!("{}", first_dt.format("%a"));
-            // let sliced_first_dt = &first_fmt_dt[0..];
-            week.push(cnt);
+            if cnt == 1 {
+                let dt2 = Local.with_ymd_and_hms(y, mo, 1, 0, 0, 0).unwrap();
+                let fmt_dt2 = format!("{}", dt2.format("%a"));
+                let sliced_dt2 = &fmt_dt2[0..];
+                if sliced_dt2 == "Sun" {
+                    week.push(cnt);
+                } else if sliced_dt2 == "Mon" {
+                    week.push(0);
+                    week.push(cnt);
+                } else if sliced_dt2 == "Tue" {
+                    week.push(0);
+                    week.push(0);
+                    week.push(cnt);
+                } else if sliced_dt2 == "Wed" {
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(cnt);
+                } else if sliced_dt2 == "Thu" {
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(cnt);
+                } else if sliced_dt2 == "Fri" {
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(cnt);
+                } else if sliced_dt2 == "Sat" {
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(0);
+                    week.push(cnt);
+                }
+            } else if cnt == mo_days {
+                if week.len() != 7 {
+                    week.push(cnt);
+                    while week.len() != 7 {
+                        week.push(0);
+                    }
+                } else if week.len() == 7 {
+                    continue;
+                }
+            } else {
+                week.push(cnt);
+            }
             cnt += 1;
         }
-        cnt += 1;
-        // println!(
-        //     "  {:?}   {:?}   {:?}   {:?}   {:?}   {:?}   {:?}",
-        //     week[0], week[1], week[2], week[3], week[4], week[5], week[6],
-        // );
+        // if week.len() != 6 || cnt == mo_days {
+        //     while week.len() != 6 {
+        //         week.push(0);
+        //     }
+        // }
         println!(
             "{} {} {} {} {} {} {}",
             format!("{:>3}", format!("{}", week[0])),
@@ -79,19 +127,22 @@ fn cal_maker(mo_days: u32, mo: u32, y: i32) {
             format!("{:>3}", format!("{}", week[6])),
         )
     }
-
-    //          12 2022
-    // Sun Mon Tue Wed Thu Fri Sat
-    //                   1   2   3
-    //   4   5   6   7   8   9   10
-    //   11  12  13  14  15  16  17
-    //   18  19  20  21  22  23  24
-    //   25  26  27  28  29  30  31
-    // how to acheive goal:
-    // make a array that has a list of the dates in order
-    // ex: 12/1 is on friday = [" ", " ", ... "1"]
-    // you add spaces in front of first day if first day is not on sunday
+    // println!(
+    //     "  {:?}   {:?}   {:?}   {:?}   {:?}   {:?}   {:?}",
+    //     week[0], week[1], week[2], week[3], week[4], week[5], week[6],
+    // );
 }
+//          12 2022
+// Sun Mon Tue Wed Thu Fri Sat
+//                   1   2   3
+//   4   5   6   7   8   9   10
+//   11  12  13  14  15  16  17
+//   18  19  20  21  22  23  24
+//   25  26  27  28  29  30  31
+// how to acheive goal:
+// make a array that has a list of the dates in order
+// ex: 12/1 is on friday = [" ", " ", ... "1"]
+// you add spaces in front of first day if first day is not on sunday
 fn cal(y: i32, mo: u32) {
     // debug
     println!("gotten to func y{},mo{}", y, mo);

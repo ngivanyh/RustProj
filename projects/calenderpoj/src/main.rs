@@ -50,9 +50,36 @@ fn cal_maker(mo_days: u32, mo: u32, y: i32) {
         }
         cnt += 1;
     }
+    cnt = 1;
     println!("sun{sun:?}mon{mon:?}tue{tue:?}wed{wed:?}thur{thur:?}fri{fri:?}sat{sat:?}");
     println!("{}", format!("{:^27}", format!("{} {}", mo, y)));
     println!("Sun Mon Tue Wed Thu Fri Sat");
+    while mo_days >= cnt {
+        let mut week: Vec<u32> = Vec::new();
+        while week.len() <= 6 {
+            // let first_dt = Local.with_ymd_and_hms(y, mo, 1, 0, 0, 0).unwrap();
+            // let first_fmt_dt = format!("{}", first_dt.format("%a"));
+            // let sliced_first_dt = &first_fmt_dt[0..];
+            week.push(cnt);
+            cnt += 1;
+        }
+        cnt += 1;
+        // println!(
+        //     "  {:?}   {:?}   {:?}   {:?}   {:?}   {:?}   {:?}",
+        //     week[0], week[1], week[2], week[3], week[4], week[5], week[6],
+        // );
+        println!(
+            "{} {} {} {} {} {} {}",
+            format!("{:>3}", format!("{}", week[0])),
+            format!("{:>3}", format!("{}", week[1])),
+            format!("{:>3}", format!("{}", week[2])),
+            format!("{:>3}", format!("{}", week[3])),
+            format!("{:>3}", format!("{}", week[4])),
+            format!("{:>3}", format!("{}", week[5])),
+            format!("{:>3}", format!("{}", week[6])),
+        )
+    }
+
     //          12 2022
     // Sun Mon Tue Wed Thu Fri Sat
     //                   1   2   3

@@ -116,62 +116,70 @@ fn cal_maker(mo_days: u32, mo: u32, y: i32) {
         //         week.push(0);
         //     }
         // }
-
-        if week[0] != 0 {
-            print!("{:>3}", format!("{}", week[0]));
-        } else {
-            print!("{:>3}", format!(" "));
+        for (pos, _e) in week.iter().enumerate() {
+            if week[pos] != 0 {
+                print!("{:>3}", format!("{}", week[pos]));
+            } else {
+                print!("{:>3}", format!(" "));
+            }
+            print!(" ");
         }
-
-        print!(" ");
-
-        if week[1] != 0 {
-            print!("{:>3}", format!("{}", week[1]));
-        } else {
-            print!("{:>3}", format!(" "));
-        }
-
-        print!(" ");
-
-        if week[2] != 0 {
-            print!("{:>3}", format!("{}", week[2]));
-        } else {
-            print!("{:>3}", format!(" "));
-        }
-
-        print!(" ");
-
-        if week[3] != 0 {
-            print!("{:>3}", format!("{}", week[3]));
-        } else {
-            print!("{:>3}", format!(" "));
-        }
-
-        print!(" ");
-
-        if week[4] != 0 {
-            print!("{:>3}", format!("{}", week[4]));
-        } else {
-            print!("{:>3}", format!(" "));
-        }
-
-        print!(" ");
-
-        if week[5] != 0 {
-            print!("{:>3}", format!("{}", week[5]));
-        } else {
-            print!("{:>3}", format!(" "));
-        }
-
-        print!(" ");
-
-        if week[6] != 0 {
-            print!("{:>3}", format!("{}", week[6]));
-        } else {
-            print!("{:>3}", format!(" "));
-        }
-
         println!("");
+        // if week[0] != 0 {
+        //     print!("{:>3}", format!("{}", week[0]));
+        // } else {
+        //     print!("{:>3}", format!(" "));
+        // }
+
+        // print!(" ");
+
+        // if week[1] != 0 {
+        //     print!("{:>3}", format!("{}", week[1]));
+        // } else {
+        //     print!("{:>3}", format!(" "));
+        // }
+
+        // print!(" ");
+
+        // if week[2] != 0 {
+        //     print!("{:>3}", format!("{}", week[2]));
+        // } else {
+        //     print!("{:>3}", format!(" "));
+        // }
+
+        // print!(" ");
+
+        // if week[3] != 0 {
+        //     print!("{:>3}", format!("{}", week[3]));
+        // } else {
+        //     print!("{:>3}", format!(" "));
+        // }
+
+        // print!(" ");
+
+        // if week[4] != 0 {
+        //     print!("{:>3}", format!("{}", week[4]));
+        // } else {
+        //     print!("{:>3}", format!(" "));
+        // }
+
+        // print!(" ");
+
+        // if week[5] != 0 {
+        //     print!("{:>3}", format!("{}", week[5]));
+        // } else {
+        //     print!("{:>3}", format!(" "));
+        // }
+
+        // print!(" ");
+
+        // if week[6] != 0 {
+        //     print!("{:>3}", format!("{}", week[6]));
+        // } else {
+        //     print!("{:>3}", format!(" "));
+        // }
+
+        // println!("");
         // println!(
         //     "{} {} {} {} {} {} {}",
         //     format!(
@@ -191,11 +199,7 @@ fn cal_maker(mo_days: u32, mo: u32, y: i32) {
 //   4   5   6   7   8   9   10
 //   11  12  13  14  15  16  17
 //   18  19  20  21  22  23  24
-//   25  26  27  28  29  30  31
-// how to acheive goal:
-// make a array that has a list of the dates in order
-// ex: 12/1 is on friday = [let _space = " ", let _space = " ", ... "1"]
-// you add _spaces in front of first day if first day is not on sunday
+//   25  26  27  28  29  30  31ay
 fn cal(y: i32, mo: u32) {
     // debug
     println!("gotten to func y{},mo{}", y, mo);

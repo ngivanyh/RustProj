@@ -4,54 +4,54 @@ use std::io;
 fn cal_maker(mo_days: u32, mo: u32, y: i32) {
     println!("hello this month has{}", mo_days);
     // declare var
-    let mut sun: Vec<u32> = Vec::new();
-    let mut mon: Vec<u32> = Vec::new();
-    let mut tue: Vec<u32> = Vec::new();
-    let mut wed: Vec<u32> = Vec::new();
-    let mut thur: Vec<u32> = Vec::new();
-    let mut fri: Vec<u32> = Vec::new();
-    let mut sat: Vec<u32> = Vec::new();
+    // let mut sun: Vec<u32> = Vec::new();
+    // let mut mon: Vec<u32> = Vec::new();
+    // let mut tue: Vec<u32> = Vec::new();
+    // let mut wed: Vec<u32> = Vec::new();
+    // let mut thur: Vec<u32> = Vec::new();
+    // let mut fri: Vec<u32> = Vec::new();
+    // let mut sat: Vec<u32> = Vec::new();
     let mut cnt: u32 = 1;
-    println!("hello cars");
-    while mo_days >= cnt {
-        println!("hello loop");
-        let dt = Local.with_ymd_and_hms(y, mo, cnt, 0, 0, 0).unwrap();
-        let format_dt = format!("{}", dt.format("%a"));
-        println!("{}", format_dt.len());
-        let sliced_format_dt = &format_dt[0..];
-        if sliced_format_dt == "Sun" {
-            sun.push(cnt);
-            println!("hello sun");
-            // cnt += 1;
-        } else if sliced_format_dt == "Mon" {
-            mon.push(cnt);
-            println!("hello mon");
-            // cnt += 1;
-        } else if sliced_format_dt == "Tue" {
-            tue.push(cnt);
-            println!("hello tue");
-            // cnt += 1;
-        } else if sliced_format_dt == "Wed" {
-            wed.push(cnt);
-            println!("hello wed");
-            // cnt += 1;
-        } else if sliced_format_dt == "Thu" {
-            thur.push(cnt);
-            println!("hello thur");
-            // cnt += 1;
-        } else if sliced_format_dt == "Fri" {
-            fri.push(cnt);
-            println!("hello fri");
-            // cnt += 1;
-        } else if sliced_format_dt == "Sat" {
-            sat.push(cnt);
-            println!("hello sat");
-            // cnt += 1;
-        }
-        cnt += 1;
-    }
-    cnt = 1;
-    println!("sun{sun:?}mon{mon:?}tue{tue:?}wed{wed:?}thur{thur:?}fri{fri:?}sat{sat:?}");
+    // println!("hello cars");
+    // while mo_days >= cnt {
+    //     println!("hello loop");
+    //     let dt = Local.with_ymd_and_hms(y, mo, cnt, 0, 0, 0).unwrap();
+    //     let format_dt = format!("{}", dt.format("%a"));
+    //     println!("{}", format_dt.len());
+    //     let sliced_format_dt = &format_dt[0..];
+    //     if sliced_format_dt == "Sun" {
+    //         sun.push(cnt);
+    //         println!("hello sun");
+    //         // cnt += 1;
+    //     } else if sliced_format_dt == "Mon" {
+    //         mon.push(cnt);
+    //         println!("hello mon");
+    //         // cnt += 1;
+    //     } else if sliced_format_dt == "Tue" {
+    //         tue.push(cnt);
+    //         println!("hello tue");
+    //         // cnt += 1;
+    //     } else if sliced_format_dt == "Wed" {
+    //         wed.push(cnt);
+    //         println!("hello wed");
+    //         // cnt += 1;
+    //     } else if sliced_format_dt == "Thu" {
+    //         thur.push(cnt);
+    //         println!("hello thur");
+    //         // cnt += 1;
+    //     } else if sliced_format_dt == "Fri" {
+    //         fri.push(cnt);
+    //         println!("hello fri");
+    //         // cnt += 1;
+    //     } else if sliced_format_dt == "Sat" {
+    //         sat.push(cnt);
+    //         println!("hello sat");
+    //         // cnt += 1;
+    //     }
+    //     cnt += 1;
+    // }
+    // cnt = 1;
+    // println!("sun{sun:?}mon{mon:?}tue{tue:?}wed{wed:?}thur{thur:?}fri{fri:?}sat{sat:?}");
     println!("{}", format!("{:^27}", format!("{} {}", mo, y)));
     println!("Sun Mon Tue Wed Thu Fri Sat");
     while mo_days >= cnt {

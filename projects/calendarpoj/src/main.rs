@@ -113,7 +113,7 @@ fn cal(y: i32, mo: u32) {
     }
 }
 fn date(cmd: String) {
-    // declare variable shortcuts
+    // declare vars
     let time = Local::now();
     let year = time.year();
     let month = time.month();

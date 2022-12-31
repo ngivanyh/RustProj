@@ -1,16 +1,29 @@
 use std::io;
 
 fn todo_manage(input: Vec<&str>) {
-    
+    // need to add:
+    // auto find arg ex: if usr input == todo -dealine 2022/12/12 -add_info abcdefg -new (auto find) hello
+    struct todo_info {
+        todo_name: String,
+        todo_deadline: String,
+        additional_info: String,
+    }
+    if input[1] == "-new" {
+        println!("helo");
+    }
 }
 fn main() {
     let mut usr_input = String::new();
-    println!("Welcome to todo program!");
+    println!("Welcome to todo.rs, Enter a command: ");
     io::stdin()
         .read_line(&mut usr_input)
         .expect("Failed to read line");
     let usr_cmd_vec: Vec<&str> = usr_input.split_whitespace().collect();
-    todo_manage(usr_cmd_vec);
+    if usr_cmd_vec.len() == 1 || usr_cmd_vec.len() == 0 {
+        println!("Not enough arguments given");
+    } else {
+        todo_manage(usr_cmd_vec);
+    }
     // desired features:
     // sort todos
     // create todos with deadline

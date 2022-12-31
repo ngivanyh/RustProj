@@ -1,15 +1,17 @@
 use std::io;
 
 fn todo_manage(input: Vec<&str>) {
-    // need to add:
-    // auto find arg ex: if usr input == todo -dealine 2022/12/12 -add_info abcdefg -new (auto find) hello
-    struct todo_info {
-        todo_name: String,
-        todo_deadline: String,
-        additional_info: String,
+    struct Todo {
+        todo_name: &'static str,
+        todo_deadline: &'static str,
+        additional_info: &'static str,
     }
     if input[1] == "-new" {
-        println!("helo");
+        let mut todo = Todo {
+            todo_name: input[2],
+            todo_deadline: "hello",
+            additional_info: "hi"
+        }
     }
 }
 fn main() {

@@ -1,14 +1,16 @@
 use std::io;
 
+fn todo_manage(input: Vec<&str>) {
+    
+}
 fn main() {
     let mut usr_input = String::new();
     println!("Welcome to todo program!");
     io::stdin()
         .read_line(&mut usr_input)
         .expect("Failed to read line");
-    println!("{usr_input}");
     let usr_cmd_vec: Vec<&str> = usr_input.split_whitespace().collect();
-    println!("{usr_cmd_vec:?}");
+    todo_manage(usr_cmd_vec);
     // desired features:
     // sort todos
     // create todos with deadline

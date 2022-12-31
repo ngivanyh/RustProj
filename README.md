@@ -5,3 +5,5 @@ language book link: https://doc.rust-lang.org/book/title-page.html
 calendarproj: prints out a full calender perfectly formatted like the cal cmd in linux
 
 primenum: ask any under 64bit number and it will tell you if it's prime or not
+
+todo: a fully fledged todo list manager that you can use to make todos (in progress)

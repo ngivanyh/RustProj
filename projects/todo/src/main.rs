@@ -1,4 +1,4 @@
-use std::{env, io};
+use std::io;
 
 fn main() {
     let mut usr_input = String::new();

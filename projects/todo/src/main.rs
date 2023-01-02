@@ -1,3 +1,4 @@
+use serde_json;
 use std::io;
 
 fn main() {
@@ -33,6 +34,10 @@ fn main() {
             io::stdin()
                 .read_line(&mut todo_info.additional_info)
                 .expect("Failed to read line");
+            println!(
+                "Todo Info:\n\tName: {}\n\tDeadline: {}\n\tAdditional Info: {}",
+                todo_info.todo_name, todo_info.todo_deadline, todo_info.additional_info
+            )
         }
     }
     // desired features:

@@ -1,6 +1,7 @@
 use serde_json::{self, json};
 use std::fs::{File, OpenOptions};
 use std::io;
+use std::io::prelude::*;
 use std::io::Write;
 use std::path::Path;
 
@@ -66,17 +67,22 @@ fn main() {
                     .unwrap();
                 write!(file_opt, "{json_obj}\n").expect("Cannot Append to File");
             }
+        } else if usr_cmd_vec[1] == "ls" {
+            if Path::new("./todo.json").exists() == false {
+                println!("Please make a todo.json file first");
+            } else if Path::new("./todo.json").exists() {
+                let mut json_file = File::open("./todo.json");
+                let mut contents = String::new();
+                json_file.read_to_string(&mut contents);
+                println!("{contents}");
+            }
         }
+
         // desired features:
-        // sort todos
         // create todos with deadline
-        // add additional info to todo
-        // use json file format
         // list todos
         // remind what todos have to be done that has deadline
         // ex: 2022/12/31 do something
-        // auto remove todos after deadline date
-        // edit todos
         // config options
     }
 }

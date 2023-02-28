@@ -12,7 +12,9 @@ fn main() -> std::io::Result<()>{
     let file_data = fs::metadata(&args[0])?;
 
     println!("File size {}", file_data.len());
-    println!("Contents: {:?}", fs::read_to_string(&args[0]));
+   
+    let contents = fs::read_to_string(&args[0]);
+
     
     Ok(())
 }

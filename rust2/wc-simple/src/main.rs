@@ -12,5 +12,28 @@ fn main() {
     let contents = fs::read_to_string(&args[0]).expect("Failed to read contents");
 
     let mut words: Vec<&str> = contents.split_whitespace().collect();
-    
 
+    words.sort();
+
+    let mut words_looped = 0;
+    let mut wc = 0;
+
+    while words_looped != words.len() {
+        let mut n_word = words_looped + 1;
+        wc = 0;
+        if words[words_looped] == words[n_word] {
+            wc += 2;
+            n_word += 1;
+            while words[n_word] == words[words_looped] {
+                wc += 1;
+                n_word += 1;
+                words_looped += 1;
+
+            }
+            println!("Word: {}, frequency: {wc}", words[words_looped]);
+        }
+
+        words_looped += 1;
+    }
+
+} 

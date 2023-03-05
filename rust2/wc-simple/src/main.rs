@@ -17,7 +17,9 @@ fn main() {
 
     let mut words_looped = 0;
     let mut wc = 0;
-
+    
+    println!("{:?}", words);
+    
     while words_looped != words.len() - 1 {
         wc = 0;
         let mut n_word = words_looped + 1;
@@ -25,15 +27,15 @@ fn main() {
             wc += 2;
             words_looped += 1;
             n_word += 1;
-            while n_word != words.len() - 1 && words_looped != words.len() - 1 && words[n_word] == words[words_looped] {
-                wc += 1;
+            while words_looped != words.len() - 1 && words[n_word] == words[words_looped] {
                 words_looped += 1;
+                wc += 1;
                 n_word += 1;
+                
             }
             println!("Word: {}, frequency: {wc}", words[words_looped]);
         }
 
         words_looped += 1;
     }
-
 } 

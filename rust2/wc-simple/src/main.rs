@@ -2,8 +2,8 @@ use std::{env, fs};
 use text_colorizer::Colorize;
 
 
-fn hasNext(v: Vec<String>, current_word: i32) -> bool{
-    if current_word + 1 == (v.len() - 1 as i32) {
+fn hasNext(v: Vec<String>, current_word: usize) -> bool{
+    if current_word + 1 == v.len() - 1 {
         true
     } else {
         false
@@ -24,7 +24,7 @@ fn main() {
 
     words.sort();
 
-    let mut cur_word: usize = 0;
+    let mut cur_word = 0;
     let mut wc = 0;
     
     println!("{:?}", words);
@@ -47,4 +47,7 @@ fn main() {
 
         cur_word += 1;
     }
-} 
+}
+
+// notes: when passing current_word param, convert cur_word (i32) to somehow usize? use as keyword
+// or use try_from

@@ -2,8 +2,8 @@ use std::{env, fs};
 use text_colorizer::Colorize;
 
 
-fn hasNext(v: Vec<String>, current_word: usize) -> bool{
-    if current_word + 1 == v.len() - 1 {
+fn has_next(v: &Vec<&str>, current_word: usize, next_word: usize) -> bool{
+    if next_word != v.len() - 1 && current_word != v.len() - 1{
         true
     } else {
         false
@@ -32,11 +32,13 @@ fn main() {
     while cur_word != words.len() - 1 {
         wc = 0;
         let mut n_word = cur_word + 1;
-        if words[cur_word] == words[n_word] && n_word != words.len() - 1 && cur_word != words.len() - 1 {
+        println!("c: {cur_word}, n: {n_word}");
+        if words[cur_word] == words[n_word] && has_next(&words, cur_word as usize, n_word as usize) {
+            println!("c: {cur_word}, n: {n_word}");
             wc += 2;
             cur_word += 1;
             n_word += 1;
-            while cur_word != words.len() - 1 && words[n_word] == words[cur_word] {
+            while has_next(&words, cur_word as usize, n_word as usize) && words[n_word] == words[cur_word] {
                 cur_word += 1;
                 wc += 1;
                 n_word += 1;
@@ -49,5 +51,3 @@ fn main() {
     }
 }
 
-// notes: when passing current_word param, convert cur_word (i32) to somehow usize? use as keyword
-// or use try_from

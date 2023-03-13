@@ -1,6 +1,10 @@
 use std::{env, fs};
 use text_colorizer::Colorize;
 
+fn filetype() -> bool {
+    if 
+}
+
 fn main() {
     let args: Vec<String> = env::args().skip(1).collect();
     
@@ -15,6 +19,9 @@ fn main() {
         dirs.push(file.unwrap().path().display().to_string());
     }
     dirs.sort();
+    
+    let args_dir= &args[0].to_string();
+    let replaced_arg = args_dir + "/";
 
     for dir in dirs {
         let new_dir = dir.replace(&args[0], "");

@@ -1,8 +1,13 @@
 use std::{env, fs};
+use std::path::PathBuf;
 use text_colorizer::Colorize;
 
-fn filetype() -> bool {
-    if 
+fn filetype(hidden: bool, dir: ) -> i8 {
+    if hidden == true {
+        if 
+    } else {
+
+    }
 }
 
 fn main() {
@@ -20,9 +25,6 @@ fn main() {
     }
     dirs.sort();
     
-    let args_dir= &args[0].to_string();
-    let replaced_arg = args_dir + "/";
-
     for dir in dirs {
         let new_dir = dir.replace(&args[0], "");
         if &new_dir[0..2] == "/." {

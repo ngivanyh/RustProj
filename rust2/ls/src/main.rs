@@ -2,20 +2,23 @@ use std::{env, fs};
 use std::path::PathBuf;
 use text_colorizer::Colorize;
 
-fn filetype(hidden: bool, dir: ) -> i8 {
-    if hidden == true {
-        if 
+fn filetype(dir: &str, print_dir: &str) {
+    let path = PathBuf::from(dir);
+    if  path.is_dir() {
+        println!("{}", print_dir.blue().bold());
     } else {
-
+        println!("{}", print_dir.bold());
     }
 }
 
 fn main() {
-    let args: Vec<String> = env::args().skip(1).collect();
+    let mut args: Vec<String> = env::args().skip(1).collect();
     
     if args.len() != 1 {
-        eprintln!("{}", "Error colleting args".red().bold());
-        std::process::exit(1);
+        match env::var("PWD") {
+            Ok(val) => args.push(val),
+            Err(e) => println!("Couldn't get HOME: {}", e),
+        };
     }
 
     let mut dirs: Vec<String> = Vec::new();
@@ -27,11 +30,7 @@ fn main() {
     
     for dir in dirs {
         let new_dir = dir.replace(&args[0], "");
-        if &new_dir[0..2] == "/." {
-            println!("{}", new_dir.bold());
-        } else {
-            println!("{}", new_dir.cyan().bold());
-        }
+        filetype(&dir, &new_dir);
     }
 
 }

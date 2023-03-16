@@ -1,6 +1,6 @@
 [package]
 name = "rust-shorcuts"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "rust-shortcuts, shortcuts to tidy up your rust code"
 readme = "README.md"

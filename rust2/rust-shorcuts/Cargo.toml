@@ -3,7 +3,7 @@ name = "rust-shorcuts"
 version = "0.1.0"
 edition = "2021"
 description = "rust-shortcuts, shortcuts to tidy up your rust code"
-readme = "READEME.md"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

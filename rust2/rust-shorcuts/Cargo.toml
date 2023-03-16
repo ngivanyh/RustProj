@@ -5,7 +5,6 @@ edition = "2021"
 description = "rust-shortcuts, shortcuts to tidy up your rust code"
 readme = "README.md"
 license = "MIT"
-license-file = "LICENSE.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

@@ -1,5 +1,5 @@
 [package]
-name = "rust-shorcuts"
+name = "rust-shortcuts"
 version = "0.1.1"
 edition = "2021"
 description = "rust-shortcuts, shortcuts to tidy up your rust code"

@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "rust-shorcuts"
+name = "rust-shortcuts"
 version = "0.1.1"

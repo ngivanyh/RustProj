@@ -1,14 +1,14 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+pub fn is_odd(val: isize) -> bool {
+    if val % 2 != 0 {
+        true
+    } else {
+        false
+    }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+#[test]
+fn test_odd() {
+    assert!(is_odd(1) == true);
+    assert!(is_odd(2) == false);    
 }

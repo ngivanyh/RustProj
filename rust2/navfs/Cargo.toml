@@ -1,0 +1,12 @@
+[package]
+name = "navfs"
+version = "0.1.0"
+edition = "2021"
+description = "navfs: navigate and do things to your filesystem!"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/IvaNG515/RustProj/tree/main/rust2/rust-shorcuts"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
